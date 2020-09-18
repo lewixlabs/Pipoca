@@ -5,15 +5,12 @@ It's written in pure C, I used this language to brush up my c skills (good times
 
 I was inspired by Crunch, but I needed a tool to generate few string values to get a smaller result (or file size).
 
-
 ## Common use
 ### A file with 10.000.000 records of 24 chars random string => (time: 56s)
 > ./pipoca 24 10000000 > chaos.txt
 
-
 ## TODO
 Generating strings with threads
-
 
 ## Credits
 Pipoca is name given by my wife to popcorns: generating random words, I think popocorns remember this kind of chaos
