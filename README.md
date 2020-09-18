@@ -10,8 +10,9 @@ I was inspired by Crunch, but I needed a tool to generate few string values to g
 > ./pipoca 24 10000000 > chaos.txt
 
 ## TODO
-Generating strings with threads
+- add alphanumeric chars
+- generate strings with threads
 
 ## Credits
-Pipoca is name given by my wife to popcorns: generating random words, I think popocorns remember this kind of chaos
+Pipoca is name given by my wife to popcorns; popcorns remember me this kind of chaos (generating random words)
 (I think it's a portuguese word, strange, mine is an Italian family 😄 )
