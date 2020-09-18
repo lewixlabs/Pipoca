@@ -7,7 +7,7 @@ I was inspired by Crunch, but I needed a tool to generate few string values to g
 
 ## Common use
 ### A file with 10.000.000 records of 24 chars random string => (time: 56s)
-    ./pipoca 24 10000000 > chaos.txt
+        ./pipoca 24 10000000 > chaos.txt
 
 ## TODO
 Generating strings with threads
