@@ -1,0 +1,7 @@
+#ifndef HEADER_FILE
+#define HEADER_FILE
+
+#define MAX_ROWS 100000000
+#define MAX_STRING_LENGTH 64
+
+#endif
