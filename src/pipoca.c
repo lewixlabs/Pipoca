@@ -5,25 +5,38 @@
 #include "include/pipoca.h"
 
 static const char numbersArray[] = "0123456789";
-static const char alphanumericArray[] = "0123456789abcdefghijklmnopqrstuvwxyz";
+static const char alphanumericArray[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-void printRandomStrings(unsigned int nRows, unsigned int nChars, unsigned char numbersOnly){
+void printRandomStrings(unsigned int nRows, unsigned int nChars, enum enStringTypes stringTypes){
     
     unsigned int rowNumber, colNumber;
 
     char* p_RandomString = malloc(nChars+1);
 
     srand(time(NULL));
+    memset(p_RandomString,0x00,nChars+1);
 
-    for (rowNumber = 0; rowNumber < nRows; rowNumber++)
+    switch (stringTypes)
     {
-        memset(p_RandomString,0x00,nChars+1);
-        for (colNumber = 0; colNumber < nChars; colNumber++)
-            *(p_RandomString+colNumber) = numbersOnly ? numbersArray[rand()%10] : alphanumericArray[rand()%strlen(alphanumericArray)];
-        p_RandomString[nChars] = '\0';
+    case number:
+        for (rowNumber = 0; rowNumber < nRows; rowNumber++)
+        {
+            for (colNumber = 0; colNumber < nChars; colNumber++)
+                *(p_RandomString+colNumber) = numbersArray[rand()%strlen(numbersArray)];
 
-        printf("%s",p_RandomString);
-        printf("\n");
+            printf("%s\n",p_RandomString);
+        }
+        break;
+    
+    default: // alphanumeric
+        for (rowNumber = 0; rowNumber < nRows; rowNumber++)
+        {
+            for (colNumber = 0; colNumber < nChars; colNumber++)
+                *(p_RandomString+colNumber) = alphanumericArray[rand()%strlen(alphanumericArray)];
+
+            printf("%s\n",p_RandomString);
+        }
+        break;
     }
 
     free(p_RandomString);
@@ -58,5 +71,5 @@ int main(int len, const char* args[])
     }
 
     numbersOnly = len > 3 && !strcmp(args[3],"--numbers-only");
-    printRandomStrings(prmNRows,prmLString,numbersOnly);
+    printRandomStrings(prmNRows,prmLString,numbersOnly ? number : alphanumeric);
 }
