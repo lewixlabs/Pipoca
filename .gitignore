@@ -1,4 +1,7 @@
-/pipoca
-/pipoca.dSYM
-/tmp.txt
+pipoca
+*.dSYM
+*.txt
 .DS_Store
+*.o
+*.d
+*.plist

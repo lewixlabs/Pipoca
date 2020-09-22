@@ -2,15 +2,10 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
-#include "pipoca.h"
+#include "include/pipoca.h"
 
 static const char numbersArray[] = "0123456789";
 static const char alphanumericArray[] = "0123456789abcdefghijklmnopqrstuvwxyz";
-
-char getNextRandomValue()
-{
-
-}
 
 void printRandomStrings(unsigned int nRows, unsigned int nChars, unsigned char numbersOnly){
     
@@ -27,7 +22,7 @@ void printRandomStrings(unsigned int nRows, unsigned int nChars, unsigned char n
             *(p_RandomString+colNumber) = numbersOnly ? numbersArray[rand()%10] : alphanumericArray[rand()%strlen(alphanumericArray)];
         p_RandomString[nChars] = '\0';
 
-        printf(p_RandomString);
+        printf("%s",p_RandomString);
         printf("\n");
     }
 
