@@ -11,7 +11,7 @@ LDFLAGS =
 APPNAME = pipoca
 EXT = .c
 SRCDIR = src
-OBJDIR = obj
+OBJDIR = .
 
 ############## Do not change anything from here downwards! #############
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
