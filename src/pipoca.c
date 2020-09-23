@@ -53,16 +53,40 @@ static const char alphanumericArray[] = "0123456789abcdefghijklmnopqrstuvwxyzABC
             params.stringType = number;
             continue;
         }
+
+        // -o [file name to write]
+        if (!strncmp(args[i],WRITE_TO_FILE,strlen(WRITE_TO_FILE)))
+        {
+            if (strlen(args[i]) == strlen(WRITE_TO_FILE))
+            {
+                params.fileToWrite = args[i+1];
+                i++;
+            }
+            else
+            {
+                params.fileToWrite = &args[i][2];
+            }
+            
+            continue;
+        }
     }
 
     return params;
  }
 
-void printRandomStrings(const struct stParams *paramsToUse){
+char printRandomStrings(const struct stParams *paramsToUse){
     
+    FILE *pf = NULL;
     unsigned int rowNumber, colNumber;
 
     char* p_RandomString = malloc(paramsToUse->nChars+1);
+    if (paramsToUse->fileToWrite != NULL && strlen(paramsToUse->fileToWrite) > 0)
+    {
+        pf = fopen(paramsToUse->fileToWrite,"w");
+        if (pf == NULL)
+            return -1;
+    }
+        
 
     srand(time(NULL));
     memset(p_RandomString,0x00,paramsToUse->nChars+1);
@@ -75,7 +99,7 @@ void printRandomStrings(const struct stParams *paramsToUse){
             for (colNumber = 0; colNumber < paramsToUse->nChars; colNumber++)
                 *(p_RandomString+colNumber) = numbersArray[rand()%strlen(numbersArray)];
 
-            printf("%s\n",p_RandomString);
+            pf != NULL ? fprintf(pf,"%s\n",p_RandomString) : printf("%s\n",p_RandomString);
         }
         break;
     
@@ -85,12 +109,14 @@ void printRandomStrings(const struct stParams *paramsToUse){
             for (colNumber = 0; colNumber < paramsToUse->nChars; colNumber++)
                 *(p_RandomString+colNumber) = alphanumericArray[rand()%strlen(alphanumericArray)];
 
-            printf("%s\n",p_RandomString);
+            pf != NULL ? fprintf(pf,"%s\n",p_RandomString) : printf("%s\n",p_RandomString);
         }
         break;
     }
 
     free(p_RandomString);
+
+    return 0;
 }
 
 int main(int len, const char* args[])
@@ -110,6 +136,5 @@ int main(int len, const char* args[])
         return 1;
     }
 
-    printRandomStrings(&paramsReceived);
-    return 0;
+    return printRandomStrings(&paramsReceived);
 }

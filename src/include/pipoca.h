@@ -5,8 +5,9 @@
 #define MAX_STRING_LENGTH 64
 
 #define STRING_LENGTH_PARAM "-c"
-#define ROWS_LENGTH_PARAM "-r"
-#define NUMBERS_ONLY_PARAM "-n"
+#define ROWS_LENGTH_PARAM   "-r"
+#define NUMBERS_ONLY_PARAM  "-n"
+#define WRITE_TO_FILE       "-o"
 
 enum enStringTypes
 {
@@ -17,6 +18,7 @@ enum enStringTypes
 struct stParams
 {
     enum enStringTypes stringType;
+    const char *fileToWrite;
     int nChars;
     int nRows;
 };
