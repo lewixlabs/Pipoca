@@ -7,11 +7,12 @@ FROM gcc:latest
 
 # These commands copy your files into the specified directory in the image
 # and set that as the working location
-COPY src /usr/src/myapp
+COPY src /usr/src/myapp/src
+COPY Makefile /usr/src/myapp
 WORKDIR /usr/src/myapp
 
 # This command compiles your app using GCC, adjust for your source code
-RUN gcc -o pipoca pipoca.c
+RUN make
 
 # This command runs your application, comment out this line to compile only
 ENTRYPOINT ["./pipoca"]

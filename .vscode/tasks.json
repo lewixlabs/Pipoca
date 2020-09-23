@@ -6,9 +6,9 @@
             "command": "/usr/bin/clang",
             "args": [
                 "-g",
-                "${file}",
+                "${workspaceFolder}/src/*.c",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/pipoca"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
