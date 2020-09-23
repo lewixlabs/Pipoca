@@ -6,8 +6,8 @@ It's written in pure C, I used this language to brush up my c skills (good times
 I was inspired by Crunch, but I needed a tool to generate few string values to get a smaller result (or file size).
 
 ## Common use
-### A file with 10.000.000 records of 24 chars random string => time: 10s on old macOS High Sierra and 8GB
-> ./pipoca 24 10000000 > chaos.txt
+### A file with 10.000.000 records of 24 chars random string => time: ~5 on old macOS High Sierra and 8GB
+> ./pipoca -r 10000000 -c 24 -o chaos.txt
 
 ## TODO
 - [x] add alphanumeric chars
