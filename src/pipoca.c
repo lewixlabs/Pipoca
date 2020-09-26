@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
+#include <pthread.h>
 #include "include/pipoca.h"
+//#include "include/threadmanager.h"
 
-static const char numbersArray[] = "0123456789";
-static const char alphanumericArray[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
  struct stParams Main_ParseArgs(int len, const char* args[])
  {
@@ -96,8 +96,9 @@ char printRandomStrings(const struct stParams *paramsToUse){
     case number:
         for (rowNumber = 0; rowNumber < paramsToUse->nRows; rowNumber++)
         {
+            //ThreadManager_randomString(paramsToUse,p_RandomString);
             for (colNumber = 0; colNumber < paramsToUse->nChars; colNumber++)
-                *(p_RandomString+colNumber) = numbersArray[rand()%strlen(numbersArray)];
+                *(p_RandomString+colNumber) = NUMBERS_ARRAY[rand()%strlen(NUMBERS_ARRAY)];
 
             pf != NULL ? fprintf(pf,"%s\n",p_RandomString) : printf("%s\n",p_RandomString);
         }
@@ -107,7 +108,7 @@ char printRandomStrings(const struct stParams *paramsToUse){
         for (rowNumber = 0; rowNumber < paramsToUse->nRows; rowNumber++)
         {
             for (colNumber = 0; colNumber < paramsToUse->nChars; colNumber++)
-                *(p_RandomString+colNumber) = alphanumericArray[rand()%strlen(alphanumericArray)];
+                *(p_RandomString+colNumber) = ALPHANUMERIC_ARRAY[rand()%strlen(ALPHANUMERIC_ARRAY)];
 
             pf != NULL ? fprintf(pf,"%s\n",p_RandomString) : printf("%s\n",p_RandomString);
         }
@@ -116,6 +117,7 @@ char printRandomStrings(const struct stParams *paramsToUse){
 
     free(p_RandomString);
 
+    
     return 0;
 }
 

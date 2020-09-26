@@ -23,4 +23,7 @@ struct stParams
     int nRows;
 };
 
+#define NUMBERS_ARRAY "0123456789"
+#define ALPHANUMERIC_ARRAY "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 #endif
