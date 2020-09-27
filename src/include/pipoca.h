@@ -7,7 +7,15 @@
 #define STRING_LENGTH_PARAM "-c"
 #define ROWS_LENGTH_PARAM   "-r"
 #define NUMBERS_ONLY_PARAM  "-n"
-#define WRITE_TO_FILE       "-o"
+#define OVERWRITE_TO_FILE   "-o"
+#define APPEND_TO_FILE      "-a"
+
+enum enBoolean
+{
+    false   = 0,
+    true    = 1
+};
+typedef enum enBoolean bool;
 
 enum enStringTypes
 {
@@ -21,6 +29,7 @@ struct stParams
     const char *fileToWrite;
     int nChars;
     int nRows;
+    bool appendToFile;
 };
 
 #define NUMBERS_ARRAY "0123456789"

@@ -12,6 +12,7 @@
     struct stParams params;
     params.stringType = alphanumeric;
     params.nRows = params.nChars = -1;
+    params.appendToFile = false;
 
     for(int i = 1;i < len; i++)
     {
@@ -54,10 +55,10 @@
             continue;
         }
 
-        // -o [file name to write]
-        if (!strncmp(args[i],WRITE_TO_FILE,strlen(WRITE_TO_FILE)))
+        // -o [file name to overwrite]
+        if (!strncmp(args[i],OVERWRITE_TO_FILE,strlen(OVERWRITE_TO_FILE)))
         {
-            if (strlen(args[i]) == strlen(WRITE_TO_FILE))
+            if (strlen(args[i]) == strlen(OVERWRITE_TO_FILE))
             {
                 params.fileToWrite = args[i+1];
                 i++;
@@ -67,6 +68,23 @@
                 params.fileToWrite = &args[i][2];
             }
             
+            continue;
+        }
+
+        // -a [file name to append]
+        if (!strncmp(args[i],APPEND_TO_FILE,strlen(APPEND_TO_FILE)))
+        {
+            if (strlen(args[i]) == strlen(APPEND_TO_FILE))
+            {
+                params.fileToWrite = args[i+1];
+                i++;
+            }
+            else
+            {
+                params.fileToWrite = &args[i][2];
+            }
+            
+            params.appendToFile = true;
             continue;
         }
     }
@@ -82,7 +100,7 @@ char printRandomStrings(const struct stParams *paramsToUse){
     char* p_RandomString = malloc(paramsToUse->nChars+1);
     if (paramsToUse->fileToWrite != NULL && strlen(paramsToUse->fileToWrite) > 0)
     {
-        pf = fopen(paramsToUse->fileToWrite,"w");
+        pf = fopen(paramsToUse->fileToWrite,paramsToUse->appendToFile ? "a" : "w");
         if (pf == NULL)
             return -1;
     }
