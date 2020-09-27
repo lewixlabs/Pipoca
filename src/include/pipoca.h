@@ -7,6 +7,7 @@
 #define STRING_LENGTH_PARAM "-c"
 #define ROWS_LENGTH_PARAM   "-r"
 #define NUMBERS_ONLY_PARAM  "-n"
+#define LOWERCASE_ONLY_PARAM  "-l"
 #define OVERWRITE_TO_FILE   "-o"
 #define APPEND_TO_FILE      "-a"
 
@@ -20,7 +21,8 @@ typedef enum enBoolean bool;
 enum enStringTypes
 {
     number,
-    alphanumeric
+    alphanumeric,
+    lowercase
 };
 
 struct stParams

@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string.h>
 #include <pthread.h>
+#include <ctype.h>
 #include "include/pipoca.h"
 //#include "include/threadmanager.h"
 
@@ -52,6 +53,13 @@
         if (!strcmp(args[i],NUMBERS_ONLY_PARAM))
         {
             params.stringType = number;
+            continue;
+        }
+
+        // -l [lowercase only]
+        if (!strcmp(args[i],LOWERCASE_ONLY_PARAM))
+        {
+            params.stringType = lowercase;
             continue;
         }
 
@@ -117,6 +125,16 @@ char printRandomStrings(const struct stParams *paramsToUse){
             //ThreadManager_randomString(paramsToUse,p_RandomString);
             for (colNumber = 0; colNumber < paramsToUse->nChars; colNumber++)
                 *(p_RandomString+colNumber) = NUMBERS_ARRAY[rand()%strlen(NUMBERS_ARRAY)];
+
+            pf != NULL ? fprintf(pf,"%s\n",p_RandomString) : printf("%s\n",p_RandomString);
+        }
+        break;
+
+    case lowercase: // alphanumeric
+        for (rowNumber = 0; rowNumber < paramsToUse->nRows; rowNumber++)
+        {
+            for (colNumber = 0; colNumber < paramsToUse->nChars; colNumber++)
+                *(p_RandomString+colNumber) = tolower(ALPHANUMERIC_ARRAY[rand()%strlen(ALPHANUMERIC_ARRAY)]);
 
             pf != NULL ? fprintf(pf,"%s\n",p_RandomString) : printf("%s\n",p_RandomString);
         }
