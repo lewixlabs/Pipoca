@@ -4,12 +4,12 @@
 #define MAX_ROWS 100000000
 #define MAX_STRING_LENGTH 64
 
-#define STRING_LENGTH_PARAM "-c"
-#define ROWS_LENGTH_PARAM   "-r"
-#define NUMBERS_ONLY_PARAM  "-n"
-#define LOWERCASE_ONLY_PARAM  "-l"
-#define OVERWRITE_TO_FILE   "-o"
-#define APPEND_TO_FILE      "-a"
+#define STRING_LENGTH_PARAM     "-c"
+#define ROWS_LENGTH_PARAM       "-r"
+#define NUMBERS_ONLY_PARAM      "-n"
+#define LOWERCASE_ONLY_PARAM    "-l"
+#define OVERWRITE_TO_FILE       "-o"
+#define APPEND_TO_FILE          "-a"
 
 enum enBoolean
 {
