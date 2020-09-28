@@ -12,6 +12,8 @@ COPY Makefile /usr/src/myapp
 WORKDIR /usr/src/myapp
 
 # This command compiles your app using GCC, adjust for your source code
+RUN apt update
+RUN apt install clang -y
 RUN make
 
 # This command runs your application, comment out this line to compile only

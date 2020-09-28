@@ -160,6 +160,7 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
 /*
  * Help
  */
+
 void PrintHelp()
 {
     printf("Pipoca 🍿\n");

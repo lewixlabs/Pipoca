@@ -3,9 +3,9 @@
 ########################################################################
 
 # Compiler settings - Can be customized.
-CC = gcc
-CXXFLAGS = -std=c11 -Wall
-LDFLAGS = 
+CC = clang
+CXXFLAGS = -std=c11 -Wall -pthread
+LDFLAGS = -pthread
 
 # Makefile settings - Can be customized.
 APPNAME = pipoca
