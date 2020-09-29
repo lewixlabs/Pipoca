@@ -5,6 +5,8 @@ It's written in pure C, I used this language to brush up my c skills (good times
 
 I was inspired by Crunch, but I needed a tool to generate few string values to get a smaller result (or file size).
 
+![C/C++ CI](https://github.com/lewixlabs/Pipoca/workflows/C/C++%20CI/badge.svg)
+
 ## Common use
 ### A file with 10.000.000 records of 24 chars random string => time: ~5s on old macOS High Sierra and 8GB
 >./pipoca -r 10000000 -c 24 -o chaos.txt
