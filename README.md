@@ -9,10 +9,24 @@ I was inspired by Crunch, but I needed a tool to generate few string values to g
 ### A file with 10.000.000 records of 24 chars random string => time: ~5s on old macOS High Sierra and 8GB
 > ./pipoca -r 10000000 -c 24 -o chaos.txt
 
+## Features
+>pipoca [options] -r <number_of_rows> -c <number_of_chars>
+>
+>Optional params:
+>
+>-o <file_to_write>: save rows to a file (overwrite mode)
+>
+>-a <file_to_write>: save rows to a file (append mode)
+>
+>-n : numbers only (default is alphanumeric)
+>
+>-l : lowercase chars only
+
 ## TODO
 - [x] add alphanumeric chars
 - [x] generate strings with threads (it's slower, to investigate 🧐)
 
 ## Credits
-Pipoca is name given by my wife to popcorns; popcorns remember me this kind of chaos (generating random words)
-(I think it's a portuguese word, strange, mine is an Italian family 😄 )
+Pipoca is name given by my wife to popcorns; popcorns remember me this kind of chaos (generating random words).
+
+I think it's a portuguese word, strange, mine is an Italian family 😄.
