@@ -19,4 +19,4 @@ RUN make
 # This command runs your application, comment out this line to compile only
 ENTRYPOINT ["./pipoca"]
 
-LABEL Name=pipoca Version=0.0.1
+LABEL Name=pipoca Version=1.0.0
