@@ -110,7 +110,10 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
     {
         pf = fopen(paramsToUse->fileToWrite,paramsToUse->appendToFile ? "a" : "w");
         if (pf == NULL)
+        {
+            printf("file open error\n");
             return -1;
+        }
     }
         
 
@@ -151,8 +154,10 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
         break;
     }
 
-    free(p_RandomString);
+    if (pf != NULL)
+        fclose(pf);
 
+    free(p_RandomString);
     
     return 0;
 }
