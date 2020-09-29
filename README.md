@@ -12,7 +12,7 @@ I was inspired by Crunch, but I needed a tool to generate few string values to g
 >./pipoca -r 10000000 -c 24 -o chaos.txt
 
 ## Same results with Docker 🐳
->docker run --rm lewixlabs/pipoca:latest -r 10000000 -c 24  
+>docker run -v /tmp:/tmp --rm lewixlabs/pipoca -r10000000 -c24 -o /tmp/chaos.txt 
 
 ## Features
 >pipoca [options] -r <number_of_rows> -c <number_of_chars>
