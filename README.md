@@ -11,7 +11,7 @@ I was inspired by Crunch, but I needed a tool to generate few string values to g
 ### A file with 10.000.000 records of 24 chars random string => time: ~5s on old macOS High Sierra and 8GB
 >./pipoca -r 10000000 -c 24 -o chaos.txt
 
-## Same results with Docker 🐳
+## With Docker 🐳
 >docker run -v /tmp:/tmp --rm lewixlabs/pipoca -r10000000 -c24 -o /tmp/chaos.txt 
 
 ## Features
