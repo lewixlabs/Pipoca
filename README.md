@@ -1,5 +1,5 @@
 # Pipoca 🍿
-Pipoca is a simple (veeeery simple 😄 ) tool to generate string values, to use in my hashcat/aircrack tests.
+Pipoca is a (veeeery simple 😄 ) tool to generate string values, to use in my hashcat/aircrack tests.
 
 It's written in pure C, I used this language to brush up my c skills (good times with pos with 8bit architecture...) because nowdays I mostly use C# and Javascript in my projects.
 
