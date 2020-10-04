@@ -106,6 +106,12 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
     unsigned int rowNumber, colNumber;
 
     char* p_RandomString = malloc(paramsToUse->nChars+1);
+
+    printf("Pipoca 🍿 is working...\n");
+    
+    time_t secondsStart,secondsStop;
+    secondsStart =  time(NULL);
+
     if (paramsToUse->fileToWrite != NULL && strlen(paramsToUse->fileToWrite) > 0)
     {
         pf = fopen(paramsToUse->fileToWrite,paramsToUse->appendToFile ? "a" : "w");
@@ -156,6 +162,8 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
 
     if (pf != NULL)
         fclose(pf);
+    secondsStop =  time(NULL);
+    printf("Elapset time to produce %i rows of %i chars: %lds\n",paramsToUse->nRows,paramsToUse->nChars,secondsStop-secondsStart);
 
     free(p_RandomString);
     
