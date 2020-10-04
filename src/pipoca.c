@@ -105,6 +105,10 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
     FILE *pf = NULL;
     unsigned int rowNumber, colNumber;
 
+    // fix "Overflow in uncontrolled allocation size" by Github CodeQL (CWE-190)
+    if (paramsToUse == NULL || paramsToUse->nChars > MAX_STRING_LENGTH)
+        return -2;
+
     char* p_RandomString = malloc(paramsToUse->nChars+1);
 
     printf("Pipoca 🍿 is working...\n");
