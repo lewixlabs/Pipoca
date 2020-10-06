@@ -9,11 +9,11 @@ I was inspired by Crunch, but I needed a tool to generate few string values to g
 ![CodeQL](https://github.com/lewixlabs/Pipoca/workflows/CodeQL/badge.svg)
 
 ## Common use
-### A file with 10.000.000 records of 24 chars random string => time: ~5s on old macOS High Sierra and 8GB
->./pipoca -r 10000000 -c 24 -o chaos.txt
+### A file with 100.000.000 records of 24 chars random string => time: ~55s on old macOS High Sierra and 8GB
+>./pipoca -r 100000000 -c 24 -o chaos.txt
 
 ## With Docker 🐳
->docker run -v /tmp:/tmp --rm lewixlabs/pipoca -r10000000 -c24 -o /tmp/chaos.txt 
+>docker run -v /tmp:/tmp --rm lewixlabs/pipoca -r100000000 -c24 -o /tmp/chaos.txt 
 
 ## Features
 >pipoca [options] -r <number_of_rows> -c <number_of_chars>
