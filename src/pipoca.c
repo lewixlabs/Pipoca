@@ -109,7 +109,7 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
     if (paramsToUse == NULL || paramsToUse->nChars > MAX_STRING_LENGTH)
         return -2;
 
-    char* p_RandomString = malloc(paramsToUse->nChars+1);
+    char* p_RandomString = malloc(paramsToUse->nChars + 2);// n chars + carriage return + string terminator
 
     printf("Pipoca 🍿 is working...\n");
     
@@ -128,7 +128,7 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
         
 
     srand(time(NULL));
-    memset(p_RandomString,0x00,paramsToUse->nChars+1);
+    memset(p_RandomString,0x00,paramsToUse->nChars + 2);
 
     switch (paramsToUse->stringType)
     {
@@ -139,7 +139,9 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
             for (colNumber = 0; colNumber < paramsToUse->nChars; colNumber++)
                 *(p_RandomString+colNumber) = NUMBERS_ARRAY[rand()%strlen(NUMBERS_ARRAY)];
 
-            pf != NULL ? fprintf(pf,"%s\n",p_RandomString) : printf("%s\n",p_RandomString);
+            *(p_RandomString+paramsToUse->nChars) = '\n';
+
+            pf != NULL ? fputs(p_RandomString,pf) : printf("%s\n",p_RandomString);
         }
         break;
 
@@ -149,7 +151,9 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
             for (colNumber = 0; colNumber < paramsToUse->nChars; colNumber++)
                 *(p_RandomString+colNumber) = tolower(ALPHANUMERIC_ARRAY[rand()%strlen(ALPHANUMERIC_ARRAY)]);
 
-            pf != NULL ? fprintf(pf,"%s\n",p_RandomString) : printf("%s\n",p_RandomString);
+            *(p_RandomString+paramsToUse->nChars) = '\n';
+
+            pf != NULL ? fputs(p_RandomString,pf) : printf("%s\n",p_RandomString);
         }
         break;
     
@@ -158,14 +162,20 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
         {
             for (colNumber = 0; colNumber < paramsToUse->nChars; colNumber++)
                 *(p_RandomString+colNumber) = ALPHANUMERIC_ARRAY[rand()%strlen(ALPHANUMERIC_ARRAY)];
+            
+            *(p_RandomString+paramsToUse->nChars) = '\n';
 
-            pf != NULL ? fprintf(pf,"%s\n",p_RandomString) : printf("%s\n",p_RandomString);
+            pf != NULL ? fputs(p_RandomString,pf) : printf("%s\n",p_RandomString);
         }
         break;
     }
 
     if (pf != NULL)
+    {
+        fflush(pf);
         fclose(pf);
+    }
+        
     secondsStop =  time(NULL);
     printf("Elapset time to produce %i rows of %i chars: %lds\n",paramsToUse->nRows,paramsToUse->nChars,secondsStop-secondsStart);
 
