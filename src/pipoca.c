@@ -177,7 +177,7 @@ char PrintRandomStrings(const struct stParams *paramsToUse){
     }
         
     secondsStop =  time(NULL);
-    printf("Elapset time to produce %i rows of %i chars: %lds\n",paramsToUse->nRows,paramsToUse->nChars,secondsStop-secondsStart);
+    printf("Elapsed time to produce %i rows of %i chars: %lds\n",paramsToUse->nRows,paramsToUse->nChars,secondsStop-secondsStart);
 
     free(p_RandomString);
     
