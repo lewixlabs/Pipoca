@@ -28,10 +28,6 @@ I was inspired by Crunch, but I needed a tool to generate few string values to g
 >
 >-l : lowercase chars only
 
-## TODO
-- [x] add alphanumeric chars
-- [x] generate strings with threads (it's slower, to investigate 🧐)
-
 ## Credits
 Pipoca is name given by my wife to popcorns; popcorns remember me this kind of chaos (generating random words).
 
