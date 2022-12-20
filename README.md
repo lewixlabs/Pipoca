@@ -5,8 +5,7 @@ It's written in pure C, I used this language to brush up my c skills (good times
 
 I was inspired by Crunch, but I needed a tool to generate few string values to get a smaller result (or file size).
 
-![C/C++ CI](https://github.com/lewixlabs/Pipoca/workflows/C/C++%20CI/badge.svg)
-![CodeQL](https://github.com/lewixlabs/Pipoca/workflows/CodeQL/badge.svg)
+[![C/C++ CI](https://github.com/lewixlabs/Pipoca/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/lewixlabs/Pipoca/actions/workflows/c-cpp.yml)
 
 ## Common use
 ### A file with 100.000.000 records of 24 chars random string => time: ~55s on old macOS High Sierra and 8GB
